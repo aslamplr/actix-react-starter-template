@@ -1,0 +1,9 @@
+[package]
+name = "api"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+serde = { version = "1", features = ["derive"] }
+env_logger = "0.9"

@@ -1,0 +1,14 @@
+{
+  "name": "actix-react-starter-template",
+  "version": "0.0.1",
+  "description": "Actix + React + Redux + Redux Saga project starter template",
+  "author": "Aslam Ahammed A<aslamplr@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "setup": "npm install && npm run setup --prefix api && npm install --prefix app",
+    "serve": "concurrently --kill-others 'npm run serve --prefix api' 'npm run dev --prefix app'"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
