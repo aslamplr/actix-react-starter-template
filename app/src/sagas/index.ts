@@ -1,12 +1,12 @@
-import { all, call, fork, put, takeLatest } from "redux-saga/effects";
-import * as api from "../api";
+import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
+import * as api from '../api';
 import {
   FETCH_API_STATUS,
   fetchApiStatus as fetchApiStatusAction,
   getStatusSuccess as getStatusSuccessAction,
   getStatusError as getStatusErrorAction,
-} from "../store/apiStatus";
-import { increment as incrementAction } from "../store/counter";
+} from '../store/apiStatus';
+import { increment as incrementAction } from '../store/counter';
 
 function* fetchApiStatus() {
   try {

@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "setup": "echo 'Done!'",
-    "serve": "cargo watch -x run"
+    "serve": "cargo watch -x run",
+    "format": "cargo fmt",
+    "lint": "cargo clippy"
   }
 }

@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { increment, decrement, selectCount } from "../store/counter";
-import { selectApiStatus } from "../store/apiStatus";
-import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { increment, decrement, selectCount } from '../store/counter';
+import { selectApiStatus } from '../store/apiStatus';
+import { Link } from 'react-router-dom';
 
 function Index() {
   const dispatch = useAppDispatch();
@@ -13,8 +13,8 @@ function Index() {
   const handleDecrement = () => dispatch(decrement());
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className='App'>
+      <header className='App-header'>
         <p>API Status: {status}</p>
         <p>
           <button onClick={handleDecrement}>-</button>
@@ -22,7 +22,7 @@ function Index() {
           <button onClick={handleIncrement}>+</button>
         </p>
         <p>
-          <Link to="/about">About</Link>
+          <Link to='/about'>About</Link>
         </p>
       </header>
     </div>

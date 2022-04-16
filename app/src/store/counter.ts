@@ -1,8 +1,8 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { RootState } from ".";
+import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { RootState } from '.';
 
 export const counterSlice = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState: {
     value: 0,
   },

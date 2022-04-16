@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "setup": "npm install && npm run setup --prefix api && npm install --prefix app",
-    "serve": "concurrently --kill-others 'npm run serve --prefix api' 'npm run dev --prefix app'"
+    "serve": "concurrently --kill-others 'npm run serve --prefix api' 'npm run dev --prefix app'",
+    "lint": "npm run lint --prefix api && npm run lint --prefix app",
+    "format": "npm run format --prefix api && npm run format --prefix app"
   },
   "devDependencies": {
     "concurrently": "^7.0.0"
