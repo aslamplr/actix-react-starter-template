@@ -8,9 +8,12 @@
     "setup": "npm install && npm run setup --prefix api && npm install --prefix app",
     "serve": "concurrently --kill-others 'npm run serve --prefix api' 'npm run dev --prefix app'",
     "lint": "npm run lint --prefix api && npm run lint --prefix app",
-    "format": "npm run format --prefix api && npm run format --prefix app"
+    "format": "npm run format --prefix api && npm run format --prefix app",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8"
   }
 }

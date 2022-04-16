@@ -25,7 +25,6 @@ function* mainSaga() {
   yield fork(allTakes);
   yield put(fetchApiStatusAction());
   yield put(incrementAction());
-  yield put(incrementAction());
 }
 
 export default mainSaga;

@@ -14,7 +14,7 @@ impl<'a> Message<'a> {
 
 #[get("/status")]
 async fn hello() -> impl Responder {
-    web::Json(Message::new("Success!"))
+    web::Json(Message::new("success!"))
 }
 
 #[actix_web::main]
