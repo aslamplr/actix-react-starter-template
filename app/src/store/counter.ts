@@ -1,18 +1,16 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { RootState } from '.';
+import { createSelector, createSlice } from './utils';
 
-export const counterSlice = createSlice({
-  name: 'counter',
-  initialState: {
-    value: 0,
+const initialState = {
+  value: 0,
+};
+
+const counterSlice = createSlice('counter', initialState, {
+  increment: (state) => {
+    state.value += 1;
   },
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
+  decrement: (state) => {
+    state.value -= 1;
   },
 });
 

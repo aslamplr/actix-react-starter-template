@@ -1,25 +1,23 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { RootState } from '.';
+import { createAction, createSelector, createSlice } from './utils';
 
-const apiStatusSlice = createSlice({
-  name: 'apiStatus',
-  initialState: {
-    status: 'loading...',
+const initialState = {
+  status: 'loading...',
+};
+
+export const FETCH_API_STATUS = 'FETCH_API_STATUS';
+export const fetchApiStatus = createAction(FETCH_API_STATUS);
+
+const apiStatusSlice = createSlice('apiStatus', initialState, {
+  getStatusSuccess: (state, status) => {
+    state.status = status;
   },
-  reducers: {
-    getStatusSuccess: (state, action) => {
-      state.status = action.payload;
-    },
-    getStatusError: (state) => {
-      state.status = 'error!';
-    },
+  getStatusError: (state, error) => {
+    state.status = error;
   },
 });
 
-export const { getStatusError, getStatusSuccess } = apiStatusSlice.actions;
-
-export const FETCH_API_STATUS = 'FETCH_API_STATUS';
-export const fetchApiStatus = () => ({ type: FETCH_API_STATUS });
+export const { getStatusSuccess, getStatusError } = apiStatusSlice.actions;
 
 export const selectApiStatus = createSelector(
   (state: RootState) => state.api.status,

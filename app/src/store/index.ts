@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, applyMiddleware, createStore } from 'redux';
 import counterReducer from './counter';
 import apiStatusReducer from './apiStatus';
 import mainSaga from '../sagas';
@@ -6,13 +6,12 @@ import createSagaMiddleware from '@redux-saga/core';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    api: apiStatusReducer,
-  },
-  middleware: [sagaMiddleware],
+const rootReducer = combineReducers({
+  counter: counterReducer,
+  api: apiStatusReducer,
 });
+
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(mainSaga);
 
