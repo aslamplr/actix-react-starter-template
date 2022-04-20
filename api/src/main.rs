@@ -12,9 +12,15 @@ impl<'a> Message<'a> {
     }
 }
 
+impl<'a> From<&'a str> for Message<'a> {
+    fn from(text: &'a str) -> Self {
+        Self::new(text)
+    }
+}
+
 #[get("/status")]
 async fn hello() -> impl Responder {
-    web::Json(Message::new("success!"))
+    web::Json(Message::from("success!"))
 }
 
 #[actix_web::main]
