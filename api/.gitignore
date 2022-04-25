@@ -1,1 +1,5 @@
 /target
+target/
+.env
+/db_data
+db_data/

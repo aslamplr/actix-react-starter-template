@@ -4,6 +4,7 @@
   "scripts": {
     "setup": "echo 'Done!'",
     "serve": "cargo watch -x run",
+    "start-dev-db": "docker-compose -f docker-compose.dev.yml up",
     "format": "cargo fmt",
     "lint": "cargo clippy"
   }

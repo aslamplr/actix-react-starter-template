@@ -3,7 +3,17 @@ name = "api"
 version = "0.0.1"
 edition = "2021"
 
+[workspace]
+members = [".", "entity", "migration"]
+
 [dependencies]
+tokio = { version = "1", features = ["full"] }
 actix-web = "4"
 serde = { version = "1", features = ["derive"] }
 env_logger = "0.9"
+dotenv = "0.15"
+async-trait = "0.1"
+
+# Internal crate dependencies
+entity = { path = "entity" }
+migration = { path = "migration" }
