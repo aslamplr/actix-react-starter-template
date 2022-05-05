@@ -1,0 +1,10 @@
+/target
+target/
+.env
+/db_data
+db_data/
+node_modules/
+package.json
+docker-compose.dev.yml
+.git/
+.gitignore

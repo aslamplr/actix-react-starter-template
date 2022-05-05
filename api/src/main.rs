@@ -64,7 +64,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::Compress::default())
             .service(web::scope("/api").service(hello).configure(cake_config))
     })
-    .bind(("127.0.0.1", 5000))?
+    .bind(("0.0.0.0", 8000))?
     .run()
     .await
 }
