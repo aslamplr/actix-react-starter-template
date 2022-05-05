@@ -9,7 +9,8 @@
     "serve": "concurrently --kill-others 'npm run serve --prefix api' 'npm run dev --prefix app' 'npm run start-dev-db --prefix api'",
     "lint": "npm run lint --prefix api && npm run lint --prefix app",
     "format": "npm run format --prefix api && npm run format --prefix app",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:prod:app-only": "npm install && npm install --prefix app && npm run build --prefix app"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
