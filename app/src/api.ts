@@ -6,7 +6,7 @@ export const apiFetch = (urlPath: string) =>
   );
 
 export const fetchApiStatus = async (): Promise<string> => {
-  const reps = await apiFetch('/api/status');
+  const reps = await apiFetch('/health');
   const { msg } = await reps.json();
   return msg;
 };

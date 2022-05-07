@@ -35,13 +35,14 @@ RUN cargo build --release
 
 
 FROM debian:buster-slim
+ARG BIND_PORT=8000
 ARG APP=/usr/src/api
 
 RUN apt-get update \
     && apt-get install -y ca-certificates tzdata \
     && rm -rf /var/lib/apt/lists/*
 
-EXPOSE 8000
+EXPOSE ${BIND_PORT}
 
 ENV TZ=Etc/UTC \
     APP_USER=appuser
