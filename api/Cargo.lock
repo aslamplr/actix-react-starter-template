@@ -323,26 +323,25 @@ dependencies = [
 
 [[package]]
 name = "async-global-executor"
-version = "2.0.4"
+version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c290043c9a95b05d45e952fb6383c67bcb61471f60cfa21e890dba6654234f43"
+checksum = "fd8b508d585e01084059b60f06ade4cb7415cd2e4084b71dd1cb44e7d3fb9880"
 dependencies = [
  "async-channel",
  "async-executor",
  "async-io",
- "async-mutex",
+ "async-lock",
  "blocking",
  "futures-lite",
- "num_cpus",
  "once_cell",
  "tokio",
 ]
 
 [[package]]
 name = "async-io"
-version = "1.6.0"
+version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a811e6a479f2439f0c04038796b5cfb3d2ad56c230e0f2d3f7b04d68cfee607b"
+checksum = "e5e18f61464ae81cde0a23e713ae8fd299580c54d697a35820cfd0625b8b0e07"
 dependencies = [
  "concurrent-queue",
  "futures-lite",
@@ -362,15 +361,6 @@ name = "async-lock"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e97a171d191782fba31bb902b14ad94e24a68145032b7eedf871ab0bc0d077b6"
-dependencies = [
- "event-listener",
-]
-
-[[package]]
-name = "async-mutex"
-version = "1.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "479db852db25d9dbf6204e6cb6253698f175c15726470f78af0d918e99d6156e"
 dependencies = [
  "event-listener",
 ]
@@ -805,7 +795,7 @@ dependencies = [
 name = "entity"
 version = "0.1.0"
 dependencies = [
- "sea-orm 0.8.0",
+ "sea-orm",
 ]
 
 [[package]]
@@ -1298,7 +1288,8 @@ name = "migration"
 version = "0.1.0"
 dependencies = [
  "entity",
- "sea-schema",
+ "sea-orm-migration",
+ "tokio",
 ]
 
 [[package]]
@@ -1751,26 +1742,6 @@ dependencies = [
 
 [[package]]
 name = "sea-orm"
-version = "0.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "27dbb8a742003f8dbf2ba290d128134d4275a6b55fd02f4d728683b6b55ea9bf"
-dependencies = [
- "async-stream",
- "async-trait",
- "futures",
- "futures-util",
- "once_cell",
- "ouroboros",
- "sea-orm-macros 0.7.0",
- "sea-query 0.23.0",
- "sea-strum",
- "serde",
- "tracing",
- "url",
-]
-
-[[package]]
-name = "sea-orm"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "51de529763804dd4f74c133055f53eccdda2221bdded94351009be28cc80d2fb"
@@ -1783,8 +1754,8 @@ dependencies = [
  "once_cell",
  "ouroboros",
  "rust_decimal",
- "sea-orm-macros 0.8.0",
- "sea-query 0.24.6",
+ "sea-orm-macros",
+ "sea-query",
  "sea-strum",
  "serde",
  "serde_json",
@@ -1796,16 +1767,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "sea-orm-macros"
-version = "0.7.0"
+name = "sea-orm-cli"
+version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "953bf5fb9f6ec985c139c4a98550b600c2f7c97bea74e2acc4025438469cb5a2"
+checksum = "fca862fdba12c753bffba9c9adf95d3d3f5dcc82fd589b12faeee7068bb173d5"
 dependencies = [
- "bae",
- "heck 0.3.3",
- "proc-macro2",
- "quote",
- "syn",
+ "async-std",
+ "chrono",
+ "clap",
+ "dotenv",
+ "regex",
+ "sea-schema",
+ "tracing",
+ "tracing-subscriber",
+ "url",
 ]
 
 [[package]]
@@ -1822,21 +1797,19 @@ dependencies = [
 ]
 
 [[package]]
-name = "sea-query"
-version = "0.22.0"
+name = "sea-orm-migration"
+version = "0.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "727090e8d1e61edd07305d237664315226748ad559e16daa6293fa26c4e7a3c3"
+checksum = "15589f057677f57bea393572bd8eb9e8feb843a5f09b4fa518be6cef3a6ffedc"
 dependencies = [
- "sea-query-derive",
-]
-
-[[package]]
-name = "sea-query"
-version = "0.23.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2bf24fc03259e206d8cd4c957ce7446fe54ab00ba5ada4cdb028aa3513e26231"
-dependencies = [
- "sea-query-derive",
+ "async-trait",
+ "clap",
+ "dotenv",
+ "sea-orm",
+ "sea-orm-cli",
+ "sea-schema",
+ "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]
@@ -1880,20 +1853,13 @@ dependencies = [
 
 [[package]]
 name = "sea-schema"
-version = "0.7.1"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d492f4550a428d2be29e4df8e43b2e9e46717424c9603fafa3365ae6079bd73"
+checksum = "09fea4b9dccc8b0667f108de2d09bdabd42a137b8437de092374a4e36de8c12f"
 dependencies = [
- "async-std",
- "async-trait",
- "clap",
- "dotenv",
- "log",
- "sea-orm 0.7.1",
- "sea-query 0.22.0",
+ "futures",
+ "sea-query",
  "sea-schema-derive",
- "tracing",
- "tracing-subscriber",
 ]
 
 [[package]]
