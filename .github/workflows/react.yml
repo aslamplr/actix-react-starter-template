@@ -3,8 +3,12 @@ name: React
 on:
   push:
     branches: [ main ]
+    paths:
+      - '/app/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - '/app/**'
 
 jobs:
   build:
