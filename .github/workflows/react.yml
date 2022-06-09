@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
       - 'app/**'
+      - '.github/workflows/react.yml'
   pull_request:
     branches: [ main ]
     paths:
       - 'app/**'
+      - '.github/workflows/react.yml'
 
 jobs:
   build:
