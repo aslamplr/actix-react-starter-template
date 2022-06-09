@@ -4,11 +4,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '/app/**'
+      - 'app/**'
+      - '.github/workflows/react.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - '/app/**'
+      - 'app/**'
+      - '.github/workflows/react.yml'
 
 jobs:
   build:

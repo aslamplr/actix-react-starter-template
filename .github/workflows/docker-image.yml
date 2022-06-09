@@ -4,11 +4,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '/api/**'
+      - 'api/**'
+      - '.github/workflows/docker-image.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - '/api/**'
+      - 'api/**'
+      - '.github/workflows/docker-image.yml'
 
 defaults:
   run:
