@@ -16,6 +16,8 @@ env_logger = "0.9"
 dotenv = "0.15"
 async-trait = "0.1"
 
+# Add test line to see if the GitHub Actions are configured to trigger the rust ci workflow.
+
 # Internal crate dependencies
 entity = { path = "entity" }
 migration = { path = "migration" }
