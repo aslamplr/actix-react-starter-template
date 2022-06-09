@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
       - 'api/**'
+      - '.github/workflows/docker-image.yml'
   pull_request:
     branches: [ main ]
     paths:
       - 'api/**'
+      - '.github/workflows/docker-image.yml'
 
 defaults:
   run:
