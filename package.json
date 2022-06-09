@@ -15,6 +15,6 @@
   "devDependencies": {
     "concurrently": "^7.2.1",
     "husky": "^8.0.1",
-    "lint-staged": "^12.3.8"
+    "lint-staged": "^13.0.1"
   }
 }
