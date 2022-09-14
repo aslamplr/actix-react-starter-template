@@ -13,7 +13,7 @@
     "build:prod:app-only": "npm install && npm install --prefix app && npm run build --prefix app"
   },
   "devDependencies": {
-    "concurrently": "^7.3.0",
+    "concurrently": "^7.4.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
   }
